@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Jawab Benar: <%= benar %> kali</p>
+    <p>Jawab Salah: <%= salah %> kali</p>
+    <div>
+      <form method="POST" action="/validate">
+        <p><%= nomor %>. <%= soal %></p>
+        <input type="radio" name="answer" value="<%= 0 %>" required="required"> <%= answers[0] %><br>
+        <% for (var i = 1; i < answers.length; i++){ %>
+          <input type="radio" name="answer" value="<%= i %>"> <%= answers[i] %><br>
+        <% } %>
+        <p><input type="submit" value="jawab"></p>
+      </form>
+      <form method="POST" action="/reset">
+        <p><input type="submit" value="reset"></p>
+      </form>
+    </div>
+    <!-- <p>Welcome to <%= title %></p> -->
+  </body>
+</html>
